@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
+use function PHPUnit\Framework\returnSelf;
+
 class UserController extends Controller
 {
     public function InsertUser(Request $request){
@@ -69,6 +71,8 @@ class UserController extends Controller
             return response()->json(["message"=>"User with that is email is not found"]);
         };
 
+        if(!$user->email_verified_at) return response()->json(["message"=>"Please verify your email before login!"]);
+
         if(Hash::check($validateData["password"],$user->password)){
             $token = $user->createToken("API_Token")->accessToken;
             return response()->json(["message"=>"success","token"=>$token]);
@@ -77,7 +81,7 @@ class UserController extends Controller
         }
     }
 
-    public function getUserData(Request $request){
+    public function getUserInfo(){
         $user = Auth::user();
 
         if($user){

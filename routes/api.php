@@ -20,10 +20,10 @@ use Spatie\FlareClient\Api;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::middleware('auth:api')->get('/userInfo', [UserController::class, 'getUserData']);
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::middleware('auth:api')->get('/user', [UserController::class,"getUserInfo"]);
 
 Route::get('/products',[ApiController::class, 'getAllProducts']);
 Route::get('/product/{productName}',[ApiController::class, 'getProduct']);
