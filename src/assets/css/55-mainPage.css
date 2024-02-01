@@ -1,0 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap'); 
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700" );
+
+/* body{
+    margin: 140px 0 0 0;
+} */
+
+ 
+  /* start here */
+
+.page-container {
+    height: 580px;
+    background-image: linear-gradient(to right, #E9E9E9 50%, #A1BEAE 50%);
+    /* height: 200px; */
+    display: flex;
+    justify-content: center;
+    /* padding: 10px; */
+
+
+    .description-box{
+      position: absolute;
+      /* background-color: #ffffff33; */
+      padding: 2px;
+      /* display: flex; */
+      width: 480px;
+      /* top: 10px; */
+      margin: 270px 0 0 0px;
+      left: 5%;
+  
+      
+    }
+    .desc{
+      /* top: 20%; */
+      font-size: 22px;
+      font-family: 'Montaga', sans-serif;
+      letter-spacing: 1px;
+      line-height: 30px;
+    }
+  
+    .shop{
+      width: 170px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      background-color: #A1BEAE;
+      border: 1px solid gray;
+      color: #fff;
+      font-size: 22px;
+      font-family: 'Montaga', sans-serif;
+      letter-spacing: 1px;
+      margin: 35px 0 0 130px;
+      box-shadow: 5px 5px 15px #474242;
+    }
+
+  }
+  .text {
+    text-align: center;
+    font-size: 160px;
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    letter-spacing: 5px;
+    position: absolute;
+    top: 10%;
+    color: #474242;
+  }
+  .model{
+    /* width: 370px; */
+    /* height: 530px; */
+    /* position: absolute; */
+    /* bottom: -30px; */
+    /* left: 37%; */
+    /* object-fit: fill; */
+    z-index: 0;
+  }
+  

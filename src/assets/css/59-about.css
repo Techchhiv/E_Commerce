@@ -1,0 +1,45 @@
+@import url("https://fonts.cdnfonts.com/css/mogra");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700" );
+@import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap'); 
+
+
+.info-container{
+    /* width: 100%; */
+    background-color: #fff;
+    height: 200px;
+    display: flex;
+    /* gap: 50px; */
+    padding: 20px 80px;
+    justify-content: space-between;
+}
+    .contact-box{
+        display: flex;
+        /* background-color: yellow; */
+        flex-direction: column;
+        align-items: center;
+    }
+        .contact-box h3{
+            font-family: 'Mogra' , sans-serif;
+            font-size: 28px;
+        }
+        .contact-box i{
+            color: black;
+            font-size: 22px;
+        }
+        .contact-box div{
+            display: flex;
+            gap: 15px;
+        }
+        .contact-box.line{
+            margin-top: 15px ;
+            /* padding: 20px 0 0 0; */
+            padding: 0;
+            display: block;
+            /* text-align: left; */
+            /* color: red; */
+            /* justify-content: last baseline; */
+            font-family: 'playfair display';
+            /* letter-spacing: 1px; */
+            font-size: 15px;
+            
+        }

@@ -1,0 +1,191 @@
+
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:ital,wght@400;500&display=swap");
+@import url("https://fonts.cdnfonts.com/css/montaga");
+body{
+  /* background-color: #E9E9E9; */
+}
+
+
+.container-slider{
+  /* width:100vw; */
+  /* height:100%; */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color: #E9E9E9;
+  /* padding: 5px; */
+  flex-direction: column;
+  padding: 20px 0 15px 0;
+}
+
+h1{
+  margin: 20px 0 -10px 0;
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+}
+h4{
+  font-family: "montaga", serif;
+  font-weight: lighter;
+}
+.slider {
+  height: 520px;
+  width:100%;
+  display: flex;
+  perspective: 1000px;
+  position: relative;
+  align-items:center;
+  background-color: #E9E9E9;
+  /* padding: 10px 0 0 0 ; */
+  /* gap: 50px; */
+}
+.box1{  
+  background-image: url(../image/a22692ef806d0c78a1eca6c0754d6133.jpg);
+      /* background:url('https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
+  background-size:cover;
+  background-position:center center;}
+.box2{
+  background-image: url(../image/bl.jpg);
+/* background:url('https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
+  background-size:cover;
+  background-position:center center;}
+.box3{
+  background-image: url(../image/james-feaver-t9h7Ki99HoY-unsplash.jpg);
+/* background:url('https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
+  background-size:cover;
+  background-position:center center;}
+.box4{
+  background-image: url(../image/green.jpg);
+/* background:url('https://images.pexels.com/photos/3274903/pexels-photo-3274903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
+  background-size:cover;
+  background-position:center center;}
+.box5{
+  background-image: url(../image/4a05650e6d84d3aa0e436de9238721db.jpg);
+/* background:url('https://images.pexels.com/photos/3618162/pexels-photo-3618162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
+  background-size:cover;
+  background-position:center center;}
+.box6{
+  background-image: url(../image/aiony-haust-IXYxqP4zejo-unsplash.jpg);
+/* background:url('https://images.pexels.com/photos/4256852/pexels-photo-4256852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
+  background-size:cover;
+  background-position:center center;}
+.box7{
+  background-image: url(../image/a5242b0a85ad2808c1b21c19dc8303e3.jpg);
+/* background:url('https://images.pexels.com/photos/1891234/pexels-photo-1891234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
+  background-size:cover;
+  background-position:center center;}
+.slider [class*="box"] {
+/*   float: left; */
+  overflow: hidden;
+  /* border-radius:50px; */
+  width: 370px;
+  height: 500px;
+  border-top-left-radius: 180px;
+  border-top-right-radius: 180px;
+  /* width: 50px; */
+  /* height: 100px; */
+  /* border-radius: 30px 30px; */
+  /* transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6); */
+  transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+  position:absolute;
+  /* gap: 50px; */
+}
+.slider [class*="box"]:nth-child(7),
+.slider [class*="box"]:nth-child(1) {
+  /* width: 360px;
+  height: 500px; */
+  transform: scale(0.4) translate(-50%,-50%);
+  top: 35%;
+  z-index:1;
+}
+.slider [class*="box"]:nth-child(2),
+.slider [class*="box"]:nth-child(6) {
+  /* width: 360px;
+  height: 500px; */
+  transform: scale(0.6) translate(-50%,-50%);
+  top: 39%;
+  /* left: 50%; */
+  z-index:2;
+}
+.slider [class*="box"]:nth-child(3),
+.slider [class*="box"]:nth-child(5) {
+  /* width: 360px;
+  height: 500px; */
+  transform: scale(0.8) translate(-50%,-50%);
+  top: 45%;
+  /* left: 50%; */
+  z-index:3;
+}
+.slider [class*="box"]:nth-child(4) {
+  /* width: 360px;
+  height: 500px; */
+  border-color: #c92026;
+  color: #fff;
+  transform: scale(1) translate(-50%,-50%);
+  top: 50%;
+  z-index:4;
+}
+.slider [class*="box"]:nth-child(1){
+  left:0%;}
+.slider [class*="box"]:nth-child(2){
+  left: 50px;}
+.slider [class*="box"]:nth-child(3){
+  left:370px;}
+.slider [class*="box"]:nth-child(4){
+  left:50%;}
+.slider [class*="box"]:nth-child(5){
+left:71%;}
+.slider [class*="box"]:nth-child(6){
+left:87%;}
+.slider [class*="box"]:nth-child(7){
+left:85%;}
+.slider .firstSlide {
+  -webkit-animation:  firstChild 1s;
+  animation:  firstChild 1s;
+}
+
+.navigation {
+  /* position: absolute; */
+  /* bottom: -2%; */
+  /* transform: translateY(-50%); */
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 20px; */
+  /* background-color: green; */
+  /* padding: 5px; */
+  gap: 20px;
+  padding: 10px 0 0 0;
+
+}
+.icon-box{
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+  background-color: #fffffff3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: solid 1px black;
+}
+.fa-arrow-left,
+.fa-arrow-right {
+
+
+}
+.fa-arrow-left{
+  color: gray;
+  /* border: 1px solid gray; */
+}
+/*Animation for buyers landing page slider*/
+/* @-webkit-keyframes firstChild {
+  0% {left:100%; transform: scale(0.1) translate(-50%,-50%);}
+  100% {left: 0%; transform: scale(0.1) translate(-50%,-50%);}
+}
+@keyframes firstChild {
+ 0% {left:100%; transform: scale(0.1) translate(-50%,-50%);}
+  100% {left: 0%; transform: scale(0.1) translate(-50%,-50%);}
+} */
+

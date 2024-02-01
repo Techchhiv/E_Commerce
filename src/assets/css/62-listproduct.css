@@ -1,0 +1,282 @@
+@import url("https://fonts.cdnfonts.com/css/mogra");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700" );
+@import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap'); 
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+
+.list-container{
+    background-color: #fff;
+    /* background-color: green; */
+    /* width: 100%; */
+    /* height: 800px; */
+    padding:  20px 50px;
+}
+
+.arrival-box{
+    /* width: 100%; */
+    height: 60px;
+    /* padding: 0 40px; */
+    /* background-color: rgb(207, 42, 42); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.arrival{
+    /* margin: 20px 0 -10px 0; */
+    font-size: 2em;
+    font-family: "Playfair Display", serif;
+    font-weight: lighter;
+  }
+.see-all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 25px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    /* background-color: #efeaea00; */
+    border: 1px solid rgb(225, 222, 222);
+}
+.clothes-box{
+    /* height: 60px; */
+    /* width: 1200px; */
+    /* background-color: yellow; */
+    /* display: flex; */
+    flex-direction: row;
+    /* gap: 18px; */
+    /* padding: 2px 0; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    overflow-x: scroll;
+
+    width: 1400px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    display: flex;
+    gap: 35px;
+    /* padding: 2px 0; */
+    align-items: center;
+}
+
+.clothes-box {
+    overflow-x: hidden; /* Hide the horizontal scrollbar */
+    /* white-space: nowrap; */
+    overflow-y: hidden; /* Hide the vertical scrollbar */
+}
+
+.clothes-box:hover {
+    overflow-x: auto; /* Show the horizontal scrollbar on hover */
+}
+
+
+
+ 
+        .card{
+           /* Set the width to 400px */
+            /* height: 500px; */
+
+            /* width: 700px;  */
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #d4d3d3;
+            /* background-color: #8f0707; */
+            font-family: 'playfair display', sans-serif;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+        }
+        .badge{
+            /* position: absolute; */
+            display: flex;
+            /* background-color: #ff0000; */
+            height: 30px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 9px;
+        }
+        .badge .no-discount{
+            /* color: yellow; */
+            visibility: hidden;
+            /* transform: none; */
+        }
+        .badge .fa-heart{
+            color: #dde4e0;
+        }
+       
+            .discount{
+                color: #fff;
+                background-color: #E74A40;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                font-size: 10px;
+                justify-content: center;
+                align-items: center;
+                font-family: "playfair display" , sans-serif;
+
+            }
+        
+            
+        .tumb{
+            height: 220px;
+            /* background-color: skyblue; */
+            /* padding: 20px; */
+            display: flex;
+            justify-content: center;
+            /* display: grid; */
+            /* place-items: center; */
+            padding: 0 0 5px 0;
+        }
+        .tumb img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .details{
+            /* padding:  0px 15px; */
+            background-color: #ffffff99;
+            line-height: 5px;
+            width: 220px;
+            /* padding: 0 20px 10px 20px; */
+            padding: 0 15px 10px 15px;
+        }
+        .modes{
+            font-family: "playfair display", sans-serif;
+            color: black;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        /* .category{
+            display: block;
+            color: #ccc;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        } */
+        .brands a{
+            font-weight: 500;
+            color: black;
+            font-weight: 600;
+            font-size: 16px;
+            /* display: block; */
+            /* margin-bottom: 18px; */
+            /* text-transform: uppercase; */
+            text-decoration: none;
+            /* transition: 0.3s; */
+        }
+        .brands a:hover{
+            color: palegreen;
+        }
+        .bottom-details{
+            display: flex;
+            /* overflow: hidden; */
+            /* background-color: orange; */
+            justify-content: space-between;
+            align-items: center;
+            /* padding-top: 10px; */
+            border-top: 1px solid #eee;
+            /* padding-top: 20px; */
+        }
+       
+        .price{
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            gap: 20px;
+            color: black;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .price .main-price{
+            /* color: red; */
+            font-size: 80%;
+            font-weight: 400;
+            text-decoration: line-through;
+            /* margin-right: 5px; */
+        }
+        .price .discount-price{
+            color: red;
+        }
+      
+        .price .no-discount{
+            visibility: hidden;
+        }
+        .price .no-strike{
+            font-size: 18px;
+            text-decoration: none;
+        }
+        
+        .cart a{
+            background-color: #413F3F;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            text-decoration: none;
+            color: #fff;
+            /* margin-left: 5px; */
+            /* transition: 0.3s; */
+            font-size: 15px;
+        }
+      
+       
+        .navi-bar{
+            /* margin: 0 0 -100px 0 ; */
+            display: flex;
+            justify-content: space-between;
+            /* position: absolute; */
+            /* top: 20%; */
+            padding: -1000px 0 0 0;
+        }
+        /* Add styles for scroll icons */
+        .scroll-icon {
+            position: absolute;
+            top: 50%;
+         
+            /* transform: translateY(-50%); */
+            font-size: 22px;
+            color: #b9b6b6;
+            background-color: #a1beae5d;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            /* border: 1px solid #b9b6b6; */
+        }
+        
+        .scroll-left {
+            left: 10px;
+        }
+        
+        .scroll-right {
+            right: 10px;
+        }
+        
+        
+        /* Add this at the end of your CSS file */
+
+/* Hide the vertical scrollbar */
+.clothes-box::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.clothes-box::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+/* Hide the horizontal scrollbar */
+.clothes-box::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Ensure that the scroll container has overflow hidden */
+
+/* Show the scroll bar on hover */
+.clothes-box:hover {
+    overflow: auto;
+}
+
+        

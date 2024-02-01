@@ -1,0 +1,116 @@
+@import url("https://fonts.cdnfonts.com/css/mogra");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700" );
+@import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap'); 
+
+
+
+.header-container{
+    /* background-color: purple; */
+    /* padding: 2px 30px 0 0 ; */
+}
+.name-box {
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-between; /* Distribute items with space in between */
+    align-items: center; /* Vertically center items */
+    margin: 0 0 -15px 0;
+  }
+  
+  .brandname {
+    text-align: center; /* Center the text within its container */
+    /* background-color: yellow; */
+    position: relative;
+    left: 50%;
+    font-family: 'Mogra', sans-serif;
+    font-weight: 700;
+    /* transform:  translate(50%,-50%); */
+  }
+
+
+
+.search-container {
+    position: relative;
+    display: flex;
+    /* background-color: red; */
+    padding: 10px;
+    right: 30px;
+  }
+  form{
+    display: flex;
+    gap: 30px;
+  }
+  .search-input {
+    width: 80px;
+    padding-left: 25px; 
+    background-color: #ffffff33;
+    border: none;
+    border-bottom: 1px solid gray;
+    
+  }
+  .login{
+    background-color: #D9D9D9;
+    padding: 5px 15px;
+    border: solid gray 0.5px;
+    border-radius: 50px;
+  }
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Adjust for icon position */
+    transform: translateY(-50%); /* Vertically center the icon */
+    color: #999; /* Optional: adjust icon color */
+  }
+  .fa-shopping-cart {
+    margin-top: 7px;
+    color: black;
+  }
+  .fa-search{
+    color: rgb(60, 56, 56);
+  }
+
+
+.gender-box {
+    display: flex; /* Arrange gender options horizontally */
+    /* background-color: yellow; */
+    display: flex;
+    text-transform: uppercase;
+    /* font-weight: 600; */
+    font-family: "Playfair Display", serif;
+    letter-spacing: 1px;
+    gap: 50px;
+    padding: 0 0 0 25px;
+  }
+  
+  .gender {
+    cursor: pointer; /* Indicate interactivity */
+    border-bottom: 2px solid transparent; /* Transparent border initially */
+    transition: border-bottom 0.3s ease; /* Smooth transition */
+  }
+  
+  .gender:hover {
+    border-bottom-color: #000; /* Show border on hover */
+  }
+  
+  .gender:first-child {
+    border-bottom-color: #000; /* Default border for "Women" */
+  }
+  .types{
+    /* background-color: rebeccapurple; */
+    display: flex;
+    gap: 60px;
+    /* width: 1; */
+    text-transform: uppercase;
+    font-family: "Playfair Display", sans-serif;
+    border-top: 1px solid #C0BCBC;
+    border-bottom: 1px solid #C0BCBC;
+    margin-bottom: 1px;
+    font-size: 15px;
+    padding: 0 0 0px 250px;
+  }
+  /* .test{
+    background-color: #999;
+    width: 100%;
+    height: 550px;
+    
+  } */
+
+ 
