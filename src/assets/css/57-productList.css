@@ -146,9 +146,10 @@
             color: black;
             font-size: 13px;
             margin-bottom: 15px;
+            line-height: 13px;
+            width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 10px;
         }
         /* .category{
             display: block;
@@ -159,18 +160,22 @@
             margin-bottom: 18px;
         } */
         .brands a{
-            font-weight: 500;
             color: black;
             font-weight: 600;
             font-size: 16px;
-            /* display: block; */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            line-height: 18px;
             /* margin-bottom: 18px; */
             /* text-transform: uppercase; */
             text-decoration: none;
             /* transition: 0.3s; */
+            transition: 0.2s;
         }
         .brands a:hover{
             color: palegreen;
+            transition: 0.2s;
         }
         .bottom-details{
             display: flex;

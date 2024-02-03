@@ -9,7 +9,10 @@
                          <img  src="../assets/svg/left-arrow.svg" alt="">
                     </a>
                </div>
-            <form class="flex-col items-center px-[45px] py-[40px] w-[450px] h-fit font-Playfair">
+               <form @submit.prevent="submitInfo()" class="flex-col relative items-center px-[45px] py-[40px] w-[450px] h-fit font-Playfair">
+                <transition class="absolute transition-all ease-in-out -top-5 bg-red-500 px-10 py-2 text-white font-bold rounded-lg">
+                 <p v-if="isError">{{ error }}</p>
+                </transition>
                 <p class="italic font-bold text-[24px]">Spotlight</p>
                 <p class="italic font-bold">Log in</p>
                 <input class="w-[360px] pl-5 border border-black rounded-lg py-2" type="email" v-model="email" placeholder="Email">
@@ -32,6 +35,44 @@
         </div>
     </div>
 </template>
-<style src="../assets/tailwind.css">
+<script>
+import axios from 'axios';
+    
+    export default{
+        data() {
+            return {
+                error: null,
+                isError: false,
+            }
+        },
+        methods:{
+            async submitInfo(){
+                try{
+                    const res = await axios.post('/login',{
+                        email: this.email,
+                        password: this.password
+                    });
+                    if(res.data.message != "success"){
+                        this.error = res.data.message;
+                        this.isError = true;
+                        console.log(res.data.message);
+                    }else{
+                        localStorage.setItem('user_token', res.data.token);
+                        this.$router.push({name: 'home'});
+                    }
+                }catch(error){
+                    this.error = "Please input all the information!";
+                    this.isError = true;
+                    console.log(error);
+                }
 
+                setTimeout(()=>{
+                    this.error = null;
+                    this.isError = false;
+                },3000);
+            }
+        }
+    }
+</script>
+<style src="../assets/tailwind.css">
 </style>

@@ -4,3 +4,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap'); 
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700" );
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.no-scroll::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
