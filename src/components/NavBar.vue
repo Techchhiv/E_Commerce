@@ -2,14 +2,14 @@
     <body>
         <div class="header-container">
             <div class="name-box">
-                <h1 class="brandname">Spotlight</h1>
+                <h1 class="brandname"><router-link style="text-decoration: none; color: black;" :to="{name: 'home'}">Spotlight</router-link></h1>
                 <div class="search-container">
                     <form>
                         <input type="text" placeholder="Search" class="search-input">
                         <i class="fa fa-search search-icon" aria-hidden="true"></i>
                         
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <button type="submit" class="login">Login</button>
+                        <router-link :to="{name: 'cart'}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></router-link>
+                        <a href="./login" class="login" style="text-decoration: none;">Login</a>
                     </form>
                 </div>
             </div>

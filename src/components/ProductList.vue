@@ -2,7 +2,7 @@
         <div class="list-container">
             <div class="arrival-box">
                 <p class="arrival">New Arrival</p>
-                <a :href="'./products'">
+                <a class="allProduct" style="text-decoration: none;" :href="'./products'">
                     <div class="see-all"> 
                         <p>See All</p>
                         <i class="fas fa-arrow-right" ></i>
@@ -42,7 +42,9 @@
         </div>
 </template>
 
-<style src="../assets/css/57-productList.css"></style>
+<style src="../assets/css/57-productList.css">
+
+</style>
 
 <script>
     import axios from 'axios';
