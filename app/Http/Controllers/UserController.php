@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\OtpMail;
+use App\Models\Category;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,17 +17,20 @@ use function PHPUnit\Framework\returnSelf;
 class UserController extends Controller
 {
     public function InsertUser(Request $request){
-        // $validateDate = $request->validate([
-        //     "name" => "required|string",
-        //     "email" => "required|email|unique:users",
-        //     "password" => "required|string"
-        // ]);
+        $validateDate = $request->validate([
+            "name" => "required|string",
+            "email" => "required|email|unique:users",
+            "password" => "required|string"
+        ]);
 
         $findUser = User::where('email',$request->get('email'))->first();
-
-        if($findUser){
+        $findUsers = User::where('name',$request->get('name'))->first();
+        if($findUser || $findUsers){
             return response(['message'=>"User already exist!"]);
         }
+
+        if($request->confirm_password != $request->password)
+            return response(['message'=>"Password is mismatch"]);
 
         DB::statement("alter table users auto_increment = 1");
 
@@ -67,7 +71,7 @@ class UserController extends Controller
             "password" => "required|string",
         ]);
 
-        if(!$user = User::where('email',$validateData["email"])->first()){
+        if((!$user = User::where('email',$validateData["email"])->first())){
             return response()->json(["message"=>"User with that is email is not found"]);
         };
 
@@ -85,14 +89,26 @@ class UserController extends Controller
         $user = Auth::user();
 
         if($user){
-            return response()->json([
-                'name'=> $user->name,
-                'email'=> $user->email,
-            ]);
+            return response()->json(["user"=>$user]);
+            // return response()->json([
+            //         'name'=> $user->name,
+            //         'email'=> $user->email,
+            //     ]);
         }
     }
     
     public function findUserProduct(Request $request){
-        return response()->json(["product"=>User::with('cartProducts')->find($request->id)]);
+        $userProduct = User::with('cartProducts')->find($request->id);
+        $products = $userProduct->cartProducts;
+
+        $category = [];
+        
+        foreach($products as $p){
+            $category[] = Category::find($p->category_id)->name;
+        }
+        if(!$userProduct->cartProducts->isEmpty())
+            return response()->json(["products"=>$products,"category"=>$category]);
+        else 
+            return response()->json(["message"=>"No item were added to cart!"]);
     }
 }

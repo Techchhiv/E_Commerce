@@ -11,12 +11,19 @@ use Illuminate\Http\Request;
 class ApiController extends Controller
 {
     public function getAllProducts(){
-        $product = Product::all();
+        $product = Product::with('categories')->get();
         return response()->json(["product"=>$product]);
     }
 
-    public function getProduct(Request $request){
+    public function getProductbyName(Request $request){
         return response()->json(["product"=>Product::where('name',$request->productName)->first()]);
+    }
+
+    public function getProductById(Request $request){
+        $product = Product::find($request->productId);
+        $category = Category::find($product->category_id);
+        if($product)
+            return response()->json(['product'=>$product,'category'=>$category]);
     }
 
 

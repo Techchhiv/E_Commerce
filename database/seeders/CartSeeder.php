@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Cart;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CartSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class CartSeeder extends Seeder
                 'product_id' => 1, // Assuming product IDs from ProductsTableSeeder
                 'color' => 'Blue',
                 'quantity' => 2,
+                'size'=>'XL',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -27,19 +29,14 @@ class CartSeeder extends Seeder
                 'product_id' => 3,
                 'color' => 'Red',
                 'quantity' => 1,
+                'size'=>'XL',
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-            [
-                'user_id' => 2,
-                'product_id' => 2,
-                'color' => 'Black',
-                'quantity' => 3,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+            ]
         ];
 
+        
         Cart::insert($cartData);
+        // DB::table('carts')->delete();
     }
 }

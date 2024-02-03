@@ -19,10 +19,10 @@ class Product extends Model
     ];
 
     public function categories(){
-        return $this->belongsTo(Category::class, 'id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function carts(){
-        return $this->belongsToMany(Cart::class, 'carts')->withPivot('color','quantity');
+        return $this->belongsToMany(Cart::class, 'carts')->withPivot('color','quantity','size','color');
     }
 }

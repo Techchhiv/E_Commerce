@@ -16,12 +16,14 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         // DB::table('categories')->delete();
-        // DB::statement("alter table categories auto_increment = 1");
+        DB::statement("alter table categories auto_increment = 1");
 
         $category = [
-            ["name"=>"Men","created_at"=>Carbon::now(),"updated_at"=>Carbon::now()],
-            ["name"=>"Women","created_at"=>Carbon::now(),"updated_at"=>Carbon::now()],
-            ["name"=>"Kids","created_at"=>Carbon::now(),"updated_at"=>Carbon::now()]
+            ["name"=>"Jacket","created_at"=>Carbon::now(),"updated_at"=>Carbon::now()],
+            ["name"=>"Coat","created_at"=>Carbon::now(),"updated_at"=>Carbon::now()],
+            ["name"=>"Shirt","created_at"=>Carbon::now(),"updated_at"=>Carbon::now()],
+            ["name"=>"Jean","created_at"=>Carbon::now(),"updated_at"=>Carbon::now()],
+            
         ];
 
         DB::table('categories')->insert(

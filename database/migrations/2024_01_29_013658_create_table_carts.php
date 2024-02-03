@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('product_id')->unsigned();
             $table->string('color')->nullable();
             $table->integer('quantity')->default(1);
+            $table->string('size')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

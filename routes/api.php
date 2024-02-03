@@ -26,7 +26,8 @@ use Spatie\FlareClient\Api;
 Route::middleware('auth:api')->get('/user', [UserController::class,"getUserInfo"]);
 
 Route::get('/products',[ApiController::class, 'getAllProducts']);
-Route::get('/product/{productName}',[ApiController::class, 'getProduct']);
+// Route::get('/product/{productName}',[ApiController::class, 'getProductbyName']);
+Route::get('/product/{productId}',[ApiController::class, 'getProductbyId']);
 Route::get('/user/{id}/cart/product',[UserController::class,"findUserProduct"]);
 Route::get('/category/{categoryName}',[ApiController::class, "findByCategory"]);
 
