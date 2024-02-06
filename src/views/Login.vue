@@ -74,5 +74,5 @@ import axios from 'axios';
         }
     }
 </script>
-<style src="../assets/tailwind.css">
+<style scoped src="../assets/tailwind.css">
 </style>

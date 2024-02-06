@@ -22,12 +22,12 @@
                    </button>
                    <p class="text-black">Already have an account! <a href="./login" class="text-blue-400 font-semibold">Sign In</a></p>
                </form>
-               <div class="w-[32px] left-10 absolute top-[30px]">
+               <div class="w-[32px] left-10 absolute top-[15px]">
                     <a href="./">
                          <img  src="../assets/svg/left-arrow.svg" alt="">
                     </a>
                </div>
-               <div class="opacity-35 transform relative  mr-10 bg-[url('/src/assets/image/3e9a70ad0377274284d99208dd054279.jpg')] w-[450px] h-[800px] bg-s bg-no-repeat" >
+               <div class="opacity-35 transform relative bg-[url('/src/assets/image/bb7e2f28a7f5987aae041ad83fd3d3c7.jpg')] w-[450px] ml-10 h-[800px] bg-s bg-no-repeat" >
                     <div class="h-full top-0 bg-white w-[120px] absolute -left-10 -skew-x-6"></div>
                </div>
           </div>

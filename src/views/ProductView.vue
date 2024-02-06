@@ -1,6 +1,8 @@
 <template>
     <div class="product-list m-auto flex-col font-Playfair px-10 max-w-[1280px]">
         <div class="flex mb-[100px] mt-[50px] gap-3 font-semibold">
+            <router-link :to="{name:'home'}">Home</router-link>
+            <p>></p>
             <p v-if="category">{{ category.name }}</p>
             <p>></p>
             <p v-if="product" >{{ product.name }}</p>
@@ -8,12 +10,14 @@
 
         <div class="flex">
             <div class="flex-col w-2/12">
-                <img v-if="product" class="max-w-[120px] p-2 mb-[35px] border-black border" :src="`/src/assets/image/${category.name}/${product.image}`" alt="">
-                <img v-if="product" class="max-w-[120px] p-2 mb-[35px]" src="../assets/image/lega.png" alt="">
-                <img v-if="product" class="max-w-[120px] p-2 mb-[35px]" src="../assets/image/lega.png" alt="">
-            </div>
-            <div class=" w-5/12">
-                <img v-if="product" :src="`/src/assets/image/${category.name}/${product.image}`" alt="">
+                <img @click="selectedImage = product.image" v-if="product" class="transition-all cursor-pointer max-w-[120px] p-2 mb-[35px]" :class="{'border-black border': selectedImage == product.image}" :src="`/src/assets/image/${category.name}/${product.image}`" alt="">
+                <img @click="selectedImage = 'img1.png'" v-if="product" class="transition-all cursor-pointer max-w-[120px] p-2 mb-[35px]" :class="{'border-black border': selectedImage == 'img1.png'}" src="../assets/image/img1.png" alt="">
+                <img @click="selectedImage = 'img2.png'" v-if="product" class="transition-all cursor-pointer max-w-[120px] p-2 mb-[35px]" :class="{'border-black border': selectedImage == 'img2.png'}" src="../assets/image/img2.png" alt="">
+            </div> 
+            <div class="flex justify-center items-center w-5/12">
+                <img v-if="product && selectedImage == product.image" class="" :src="`/src/assets/image/${category.name}/${product.image}`" alt="">
+                <img v-if="product && selectedImage == 'img1.png'" class="" :src="`/src/assets/image/img1.png`" alt="">
+                <img v-if="product && selectedImage == 'img2.png'" class="" :src="`/src/assets/image/img2.png`" alt="">
             </div>
             <div class="flex-col w-5/12">
                 <p v-if="product" class="font-bold text-[24px]">{{ product.name }}</p>
@@ -45,7 +49,11 @@
                         <button class="text-[23px]" @click="
                             this.quantity++;
                         ">+</button>
+
                     </div>
+                    <transition>
+                        <i v-if="success" class="font-bold text-[18px] fa-regular fa-circle-check" style="color: #63E6BE;"></i>
+                    </transition>
                 </div>
                 <button v-on:click="insertCart()" class="py-2 my-[20px] rounded-xl w-full hover:border-black hover:bg-white hover:text-black border-[#97B093] border bg-blue-500 font-bold transition text-white">Add To Cart</button>
                 <button class="py-2 rounded-xl w-full hover:border-[#97B093] transition border-black border hover:bg-[#97B093] font-bold text-black hover:text-white">Add To Favorite</button>
@@ -57,7 +65,8 @@
 <style scoped src="../assets/tailwind.css">
 </style>
 <script>
-    import axios from 'axios';
+    import fetchCartQuantity from '@/stores/fetchQuantity';
+import axios from 'axios';
 import { ref } from 'vue';
 
     export default{
@@ -71,6 +80,8 @@ import { ref } from 'vue';
                 sizes: ['S','M','L','XL'],
                 product: null,
                 category: null,
+                selectedImage: null,
+                success: false,
             }
         },
 
@@ -79,6 +90,7 @@ import { ref } from 'vue';
              axios.get(`/product/${productId}`).then(res => {
                 next(vm =>{
                     vm.product = res.data.product;
+                    vm.selectedImage= res.data.product.image;
                     vm.category = res.data.category;
                 });
             }).catch(e => {
@@ -94,26 +106,38 @@ import { ref } from 'vue';
                 this.getUserFromToken(token).then(users =>{
                     if(users){
                         this.user = users.user;
-                        console.log(this.user);
                     }
                 })
+            }else{
+                console.log('user is not available');
             }
         },
         methods:{
             async insertCart(){
-                await axios.post('/cart',{
-                    user_id: this.user.id,
-                    product_id: this.$route.params.productId,
-                    color: this.selectedColor,
-                    quantity: this.quantity,
-                    size: this.selectedSize,
-                }).then(res=>{
-                    if(res.data.message=='success'){
-                        console.log(res.data.message);
-                    }
-                }).catch((e)=>{
-                    console.log(e.message);
-                })
+                if(this.user!=null){
+                    await axios.post('/cart',{
+                        user_id: this.user.id,
+                        product_id: this.$route.params.productId,
+                        color: this.selectedColor,
+                        quantity: this.quantity,
+                        size: this.selectedSize,
+                    }).then(res=>{
+                        if(res.data.message=='success'){
+                            this.success = true;
+                            setTimeout(()=>{
+                                this.success = false;
+                            },3000);
+
+                            fetchCartQuantity(this.user.id);
+
+                            console.log(res.data.message);
+                        }
+                    }).catch((e)=>{
+                        console.log(e.message);
+                    })
+                }else{
+                    this.$router.push({name:'login'});
+                }
             }
         }
         // mounted(){

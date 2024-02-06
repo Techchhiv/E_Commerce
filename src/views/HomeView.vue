@@ -22,6 +22,7 @@
       ProductList,
       WhyUs,
       AboutUs
-    }
+    },
+
   }
 </script>

@@ -7,7 +7,9 @@
                     <form @submit.prevent>
                         <input type="text" placeholder="Search" class="search-input" style="outline: none;">
                         <i class="fa fa-search search-icon" aria-hidden="true"></i>
-                        <router-link :to="{name: 'cart'}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></router-link>
+                        <router-link :to="{name: 'checkout'}" style="text-decoration: none;position: relative;"><i class="fa fa-shopping-cart relative" aria-hidden="true" style=""></i>
+                            <div v-if="quantity" style="font-size: 12px; position: absolute; right: -10px; top: 0;z-index: 0;color: white;padding: 2px 4px; background-color: red; border-radius: 100%;">{{ quantity }}</div>
+                        </router-link>
                         <button @click="show=!show" v-if="user" class="" style="width: fit-content;display: flex; align-items: center; font-weight: bold;border: none;background-color: white;">{{ user.name }}</button>
                         <div v-if="show" class="dropdown-options">
                             <button v-on:click="logOut()">Log Out</button>
@@ -37,7 +39,9 @@
 
 <script src="" async defer>
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watchEffect } from 'vue';
+import { cartQuantities } from '../stores/quantity.js';
+import fetchCartQuantity from '../stores/fetchQuantity';
 
     export default{
         data() {
@@ -47,7 +51,8 @@ import { onMounted, ref } from 'vue';
         },
         setup(){
             let user = ref(null);
-
+            const store = cartQuantities();
+            let quantity = ref(cartQuantities.quantity);
 
             onMounted(async () => {
                 try {
@@ -63,14 +68,38 @@ import { onMounted, ref } from 'vue';
 
                     const res = await axios.get('/user', { headers });
                     user.value = res.data.user;
+                    // await axios.get(`/user/${res.data.user.id}/cart/quantity`)
+                    // .then((response)=>{
+                    //     quantity.value = response.data.items;
+                    //     console.log(quantity.value);
+                    // }).catch((e)=>{
+                    //     console.log(e);
+                    // });
+                    fetchCartQuantity(user.value.id);
                     console.log(user.value.name);  // Access name directly without .user
                 } catch (error) {
                     console.log(error);
                 }
+
+                // watch(() => store.quantity, (newQuantity, oldQuantity) => {
+                //     console.log(`Quantity changed from ${oldQuantity} to ${newQuantity}`);
+                //     // Update the local quantity in the component
+                //     quantity.value = newQuantity;
+                //     // Perform additional actions if needed
+                // });
+                // watchEffect((oldQuantity, newQuantity)=>{
+                //     store.quantity = newQuantity;
+                // });
+                watchEffect(()=>{
+                    quantity.value = store.quantity;
+                });
+
             });
 
             return {
                 user,
+                // store,
+                quantity,
             };
         },
         methods:{
