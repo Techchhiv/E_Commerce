@@ -23,6 +23,8 @@ use Spatie\FlareClient\Api;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::get('/user/{id}/cart/quantity',[CartController::class,'getCartQauntity']);
 Route::middleware('auth:api')->get('/user', [UserController::class,"getUserInfo"]);
 
 Route::get('/products',[ApiController::class, 'getAllProducts']);
@@ -35,4 +37,6 @@ Route::post('/register',[UserController::class,"InsertUser"]);
 Route::post('/login',[UserController::class,"LoginUser"]);
 
 Route::post('/product',[ProductController::class, "InsertProduct"]);
+
 Route::post('/cart',[CartController::class, "InsertCart"]);
+Route::delete('/cart/{userId}/{productId}',[CartController::class,'deleteProductCart']);

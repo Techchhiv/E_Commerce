@@ -19,7 +19,7 @@ class UserController extends Controller
     public function InsertUser(Request $request){
         $validateDate = $request->validate([
             "name" => "required|string",
-            "email" => "required|email|unique:users",
+            "email" => "required|email",
             "password" => "required|string"
         ]);
 
