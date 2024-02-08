@@ -36,5 +36,21 @@ class ApiController extends Controller
         // return response()->json(["category"=>$category->id]);
     }
 
+    public function getAllCategory(){
+        return response()->json(['categories'=>Category::all()]);
+    }
+
+    public function upload(Request $request){
+        $request->validate([
+            'image' => 'required|image',
+        ]);
+
+        $imagePath = $request->file('image')->storeAs('public/images/' . $request->category,$request->file('image')->getClientOriginalName());
+
+        $imageUrl = asset('storage/public/images/'.$request->category,$imagePath);
+
+        return response()->json(['imageUrl'=> $imageUrl]);
+    }
+
 
 }
