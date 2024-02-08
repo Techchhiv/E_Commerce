@@ -56,8 +56,22 @@
     .img-clothes{
         background-image: url(../image/clothes.jpg);
         width: 330px;
-    height: 420px;
-    border-top-left-radius: 180px;
-    border-top-right-radius: 180px;
-    margin-top: 20px;
+        height: 420px;
+        border-top-left-radius: 180px;
+        border-top-right-radius: 180px;
+        margin-top: 20px;
     }
+
+    @media (max-width: 1080px) {
+        .content-left-box{
+            width: 500px;
+        }
+
+        .content-left-box .textAboutUs::-webkit-scrollbar{
+            width: 0px;
+        }
+        .content-left-box .textAboutUs{
+            height: 170px;
+            overflow: scroll;
+        }
+      }

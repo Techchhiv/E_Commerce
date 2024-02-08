@@ -7,7 +7,10 @@
                     <form @submit.prevent>
                         <input type="text" placeholder="Search" class="search-input" style="outline: none;">
                         <i class="fa fa-search search-icon" aria-hidden="true"></i>
-                        <router-link :to="{name: 'checkout'}" style="text-decoration: none;position: relative;"><i class="fa fa-shopping-cart relative" aria-hidden="true" style=""></i>
+                        <router-link v-if="user" :to="{name: 'checkout'}" style="text-decoration: none;position: relative;"><i class="fa fa-shopping-cart relative" aria-hidden="true" style=""></i>
+                            <div v-if="quantity" style="font-size: 12px; position: absolute; right: -10px; top: 0;z-index: 0;color: white;padding: 2px 4px; background-color: red; border-radius: 100%;">{{ quantity }}</div>
+                        </router-link>
+                        <router-link v-else :to="{name: 'login'}" style="text-decoration: none;position: relative;"><i class="fa fa-shopping-cart relative" aria-hidden="true" style=""></i>
                             <div v-if="quantity" style="font-size: 12px; position: absolute; right: -10px; top: 0;z-index: 0;color: white;padding: 2px 4px; background-color: red; border-radius: 100%;">{{ quantity }}</div>
                         </router-link>
                         <button @click="show=!show" v-if="user" class="" style="width: fit-content;display: flex; align-items: center; font-weight: bold;border: none;background-color: white;">{{ user.name }}</button>
