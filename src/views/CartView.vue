@@ -143,8 +143,7 @@
                 }).catch((err)=>{
                     console.log(err);
                 })
-            },
-            getImageUrl(category, filename) {
+            },getImageUrl(category, filename) {
                 return `http://localhost/api/images/${category}/${filename}`;
             },
 
@@ -154,8 +153,9 @@
         computed: {
             totalPrice() {
             // Compute total price by summing the price of each item in the cart
-                return this.products.value.reduce((total, product) => {
-                    const price = (product.price * (1 - product.discount / 100)) * product.pivot.quantity;
+                return this.products.value.reduce((total, product, index) => {
+                    
+                    const price = (product.price * (1 - product.discount / 100)) * this.quantity[index];
                     return total + price;
                 }, 0).toFixed(2);
             }

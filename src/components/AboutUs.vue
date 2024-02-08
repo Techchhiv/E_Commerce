@@ -39,6 +39,6 @@
         </div>
     </div>
 </template>
-<style src="../assets/css/59-about.css"></style>
+<style scoped src="../assets/css/59-about.css"></style>
         <script src="" async defer></script>
   

@@ -1,9 +1,6 @@
 <template>
      <div class="m-auto flex items-center h-screen justify-center">
-          <div class="overflow-hidden flex relative w-fit justify-center items-center">
-               <div v-if="isLoading" class="absolute bg-gray-700 opacity-75 h-full w-full flex items-center justify-center">
-                    <p class="text-white font-bold">Signing up...</p>
-               </div>                                 
+          <div class="overflow-hidden flex relative w-fit justify-center items-center">                            
                <form @submit.prevent="register()" class="flex-col relative items-center px-[45px] py-[40px] w-[450px] h-fit font-Playfair">
                     <transition class="absolute  transition-all ease-in-out -top-5 bg-red-500 px-5 py-2 text-white font-bold rounded-lg">
                          <p v-if="isError" class=" break-words">{{ error }}</p>

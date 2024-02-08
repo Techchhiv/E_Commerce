@@ -109,10 +109,11 @@
   }
 
   .dropdown-options{
-    background-color: rgb(253, 244, 244);
-    border: rgb(204, 198, 198) solid 1px;
+    background-color: rgb(17, 55, 168);
+    border: rgb(17, 55, 168) solid 1px;
+    font-family: 'Playfair Display', sans-serif;
     position: absolute;
-    right: 5px;
+    right: 10px;
     top: 40px;
     padding: 2px;
     cursor: pointer;
@@ -124,8 +125,14 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
-  .dropdown-options button{
-    background-color: rgb(253, 244, 244);
+  .dropdown-options button,
+  .admin{
+    background-color: royalblue;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-family: 'Playfair Display', sans-serif;
     outline: none;
     border: none;
     cursor: pointer;

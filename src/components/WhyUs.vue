@@ -18,5 +18,5 @@
             </div>
         </div>
 </template>
-<style src="../assets/css/58-whyUs.css"></style>
+<style scoped src="../assets/css/58-whyUs.css"></style>
         <script src="" async defer></script>

@@ -37,5 +37,5 @@
           <!-- <div id="test"></div> -->
 </template>
 
-<style src="../assets/css/53-rotateSlider.css"></style>
+<style scoped src="../assets/css/53-rotateSlider.css"></style>
 <!-- <script src="../assets/js/53-rotateSlider.js"></script> -->

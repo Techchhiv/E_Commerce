@@ -12,7 +12,9 @@
                         </router-link>
                         <button @click="show=!show" v-if="user" class="" style="width: fit-content;display: flex; align-items: center; font-weight: bold;border: none;background-color: white;">{{ user.name }}</button>
                         <div v-if="show" class="dropdown-options">
-                            <button v-on:click="logOut()">Log Out</button>
+                            <router-link class="admin" v-if="user.name=='admin'" :to="{name: 'admin'}"  v-on:click="" style="text-decoration: none; font-size: 14px;">Product</router-link>
+                            <button v-if="user.name=='admin'" v-on:click="logOut()">Log Out</button>
+                            <button v-if="user.name!='admin'" v-on:click="logOut()">Log Out</button>
                         </div>
                         <a v-if="!user" href="./login" class="login" style="text-decoration: none;">Login</a>
                     </form>

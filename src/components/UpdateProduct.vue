@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-span-2 flex flex-col gap-2">
                     <label for="">Description</label>
-                    <textarea v-model="description" class="outline-none border border-gray-400" name="" id="" cols="30" rows="10"></textarea>
+                    <textarea v-model="description" class="outline-none border border-gray-400 p-5" name="" id="" cols="30" rows="5"></textarea>
                 </div>
                 
                 <div class="flex justify-between items-center">
