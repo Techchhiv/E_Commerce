@@ -42,6 +42,26 @@ const router = createRouter({
       path: '/checkout',
       name: 'checkout',
       component: CheckoutView,
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: () => import('../views/AdminView.vue'),
+      meta: { hideNavbar: true },
+    }
+    ,
+    {
+      path: '/admin/insert',
+      name: 'insertProduct',
+      component: () => import('../components/insertProduct.vue'),
+      meta: { hideNavbar: true },
+    }
+    ,
+    {
+      path: '/admin/edit/:productId',
+      name: 'updateProduct',
+      component: () => import('../components/UpdateProduct.vue'),
+      meta: { hideNavbar: true },
     }
   ]
 })

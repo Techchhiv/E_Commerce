@@ -10,12 +10,13 @@
 
         <div class="flex">
             <div class="flex-col w-2/12">
-                <img @click="selectedImage = product.image" v-if="product" class="transition-all cursor-pointer max-w-[120px] p-2 mb-[35px]" :class="{'border-black border': selectedImage == product.image}" :src="`/src/assets/image/${category.name}/${product.image}`" alt="">
+                <!-- <img @click="selectedImage = product.image" v-if="product" class="transition-all cursor-pointer max-w-[120px] p-2 mb-[35px]" :class="{'border-black border': selectedImage == product.image}" :src="`/src/assets/image/${category.name}/${product.image}`" alt=""> -->
+                <img @click="selectedImage = product.image" v-if="product" class="transition-all cursor-pointer max-w-[120px] p-2 mb-[35px]" :class="{'border-black border': selectedImage == product.image}" :src="getImageUrl(category.name,product.image)" alt="">
                 <img @click="selectedImage = 'img1.png'" v-if="product" class="transition-all cursor-pointer max-w-[120px] p-2 mb-[35px]" :class="{'border-black border': selectedImage == 'img1.png'}" src="../assets/image/img1.png" alt="">
                 <img @click="selectedImage = 'img2.png'" v-if="product" class="transition-all cursor-pointer max-w-[120px] p-2 mb-[35px]" :class="{'border-black border': selectedImage == 'img2.png'}" src="../assets/image/img2.png" alt="">
             </div> 
             <div class="flex justify-center items-center w-5/12">
-                <img v-if="product && selectedImage == product.image" class="" :src="`/src/assets/image/${category.name}/${product.image}`" alt="">
+                <img v-if="product && selectedImage == product.image" class="" :src="getImageUrl(category.name,product.image)" alt="">
                 <img v-if="product && selectedImage == 'img1.png'" class="" :src="`/src/assets/image/img1.png`" alt="">
                 <img v-if="product && selectedImage == 'img2.png'" class="" :src="`/src/assets/image/img2.png`" alt="">
             </div>
@@ -138,6 +139,9 @@ import { ref } from 'vue';
                 }else{
                     this.$router.push({name:'login'});
                 }
+            },
+            getImageUrl(category, filename) {
+                return `http://localhost/api/images/${category}/${filename}`;
             }
         }
         // mounted(){

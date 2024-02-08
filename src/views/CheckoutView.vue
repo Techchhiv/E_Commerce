@@ -24,7 +24,8 @@
             <div class="no-scroll flex-col w-full max-h-[470px] overflow-y-auto">
                 <div v-if="product" class="flex mb-10" v-for="(p, index) in product">
                     <div class="flex justify-center items-center w-[120px]  h-[130px] border border-black">
-                        <img class="max-h-[120px]" :src="`/src/assets/image/${category[index]}/${p.image}`" />
+                        <!-- <img class="max-h-[120px]" :src="`/src/assets/image/${category[index]}/${p.image}`" /> -->
+                        <img class="max-h-[120px]" :src="getImageUrl(category[index],p.image)" />
                     </div>
                     <div class="ml-[30px] w-full flex flex-col justify-between">
                         <div class="text-black text-xl font-medium font-['Lato'] line-clamp-1">{{ p.name }}</div>
@@ -156,6 +157,9 @@ import { ref } from 'vue';
             },
             updateSelectedOption(option) {
                 this.selectedOption = option;
+            },
+            getImageUrl(category, filename) {
+                return `http://localhost/api/images/${category}/${filename}`;
             },
         },
         

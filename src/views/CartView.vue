@@ -5,7 +5,8 @@
             <div class="max-h-[500px] overflow-y-auto no-scroll flex-col ">
                 <div class="flex shadow-lg gap-2 mb-10 px-5 py-5 w-full h-[146px]" v-for="(p, index) in products.value">
                     <div class=" w-[100px] flex justify-center items-center">
-                        <img class="max-h-[120px]" :src="`/src/assets/image/${category.value[index]}/${p.image}?${Date.now()}`" alt="">
+                        <!-- <img class="max-h-[120px]" :src="`/src/assets/image/${category.value[index]}/${p.image}?${Date.now()}`" alt=""> -->
+                        <img class="max-h-[120px]" :src="getImageUrl(category.value[index],p.image)" alt="">
                     </div>
                     <div class="flex-col w-full ml-10">
                         <div class="flex justify-between items-center w-full">
@@ -143,8 +144,12 @@
                     console.log(err);
                 })
             },
+            getImageUrl(category, filename) {
+                return `http://localhost/api/images/${category}/${filename}`;
+            },
 
         },
+        
 
         computed: {
             totalPrice() {

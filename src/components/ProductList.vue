@@ -16,7 +16,8 @@
                         <p v-if="p.discount" class="discount"> &#37; {{ p.discount }}</p>
                     </div>
                     <div class="tumb">
-                        <img v-if="p" :src="'/src/assets/image/'+p.categories.name+'/'+p.image">
+                        <!-- <img v-if="p" :src="'/src/assets/image/'+p.categories.name+'/'+p.image"> -->
+                        <img v-if="p" :src="getImageUrl(p.categories.name,p.image)">
                     </div>
                     <div class="details">
                         <!-- <span class="category">Women, bag</span> -->
@@ -71,6 +72,11 @@
             return{
                 products,
             }
+        },
+        methods:{
+            getImageUrl(category, filename) {
+                return `http://localhost/api/images/${category}/${filename}`;
+            },
         }
 
         
